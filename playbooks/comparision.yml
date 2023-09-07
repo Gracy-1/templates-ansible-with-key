@@ -1,0 +1,12 @@
+- name: Compare text files on remote server
+  hosts: all
+  tasks:
+    - name: Compare files
+      command: diff /home/administrator/Documents/Info-backup/hostinfo1.txt /home/administrator/Documents/Info-backup/hostinfo2.txt
+      register: diff_output
+      ignore_errors: true
+
+    - name: Display differences
+      debug:
+        var: diff_output.stdout_lines
+      when: diff_output.rc != 0
