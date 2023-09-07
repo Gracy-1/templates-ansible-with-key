@@ -1,0 +1,21 @@
+- name: Change Hostname of Remote Machine
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: Display Ansible User
+      debug:
+        var: ansible_user
+    - name: Update /etc/hostname
+      lineinfile:
+        path: /etc/hostname
+        regexp: '^.*$'
+        line: 'IND-STL-ANALYTICS-APP3'  # Replace with the new hostname you want to set
+      notify:
+        - Restart Hostname Service
+
+  handlers:
+    - name: Restart Hostname Service
+      systemd:
+        name: systemd-hostnamed
+        state: restarted
