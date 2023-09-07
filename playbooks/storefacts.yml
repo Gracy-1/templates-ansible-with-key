@@ -1,0 +1,24 @@
+- name: Gather System Info and Store in File
+  hosts: all
+  become: true
+  gather_facts: yes
+  tasks:
+    - name: Gather system facts
+      ansible.builtin.setup:
+
+    - name: Create directory if it doesn't exist
+      ansible.builtin.file:
+        path: "Documents/Info-backup"
+        state: directory
+        mode: '0755'
+
+    - name: Create system info text file
+      ansible.builtin.copy:
+        content: |
+          ansible_facts:
+          Hostname: {{ ansible_facts['hostname'] }}
+        dest: "Documents/Info-backup/hostinfo1.txt"
+
+    - name: Display system info
+      ansible.builtin.debug:
+        msg: "System info saved in Documents/Info-backup/hostinfo1.txt"
