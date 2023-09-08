@@ -17,7 +17,7 @@
         content: |
           ansible_facts:
           Hostname: {{ ansible_facts['hostname'] }}
-        dest: "home/administrator/Documents/Info-backup/system_info3.txt"
+        dest: "Documents/Info-backup/system_info3.txt"
 
     - name: Display system info
       ansible.builtin.debug:
