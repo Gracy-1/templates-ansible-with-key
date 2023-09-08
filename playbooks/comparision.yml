@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     - name: Compare files
-      command: diff /home/semaphore/Documents/Info-backup/hostinfo1.txt /home/semaphore/Documents/Info-backup/hostinfo2.txt
+      command: diff /home/semaphore/Documents/Info-backup/hostinfo1.txt /home/semaphore/Documents/Info-backup/system_info3.txt
       register: diff_output
       ignore_errors: true
 
