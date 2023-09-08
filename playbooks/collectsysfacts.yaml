@@ -1,0 +1,11 @@
+- name: Gather Configuration Details of VM
+  hosts: all  # This should match the alias of the VM in your Semaphore inventory
+  gather_facts: yes    # This will gather facts about the target VM
+
+  tasks:
+    - name: Gather System Facts
+      setup:
+      
+    - name: Display System Facts
+      debug:
+        var: ansible_facts  # Display all gathered facts
