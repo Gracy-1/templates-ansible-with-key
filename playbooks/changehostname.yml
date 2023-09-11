@@ -10,7 +10,7 @@
       lineinfile:
         path: /etc/hostname
         regexp: '^.*$'
-        line: 'IND-STL-ANALYTICS-APP3'  # Replace with the new hostname you want to set
+        line: 'IND-STL-ANALYTIC-APP3'  # Replace with the new hostname you want to set
       notify:
         - Restart Hostname Service
 
